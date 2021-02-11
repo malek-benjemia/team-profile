@@ -1,8 +1,8 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-const Manager = require('./Manager.js');
-const Engineer = require('./Engineer.js');
-const Intern = require('./Intern.js');
+const Manager = require('../lib/Manager.js');
+const Engineer = require('../lib/Engineer.js');
+const Intern = require('../lib/Intern.js');
 
 
 class Page {
@@ -131,23 +131,27 @@ class Page {
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-                <link rel="stylesheet" href="./assets/css/style.css" />
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+                <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+                <link rel="stylesheet" href="../src/assets/css/style.css" />
                 <title>Team Profile</title>
         </head>
-        <body>
+        <body class="flex-column min-100-vh">
         <main>`
-        let topText = "<h1>The team members contact information</h1></br>";
-        let managerText = "<h2>The Manager</h2></br><div>The manager name: " +manager[0].name+ "</br>The manager ID: "+manager[0].ID+"</br>The manager email: "+"<a href='mailto://"+manager[0].email+"'>"+manager[0].email+"</a>"+"</br>The manager office number: "+manager[0].officeNb+"</div></br>";
-        let engineersText = "<h2>The Engineers</h2></br>";
+        let topText = "<h1 class='flex-row justify-space-around'>My Team</h1></br><div class='flex-row justify-space-around'>";
+        let managerText = "<div class='col-3 card'><div class='card-header text-uppercase'>" +manager[0].name+ "</br><span class='oi oi-briefcase'></span>  "+manager[0].role+"</div></br><div class='card-body'>ID: "+manager[0].ID+"</br>Email: "+"<a href='mailto://"+manager[0].email+"'>"+manager[0].email+"</a>"+"</br>Office number: "+manager[0].officeNb+"</div></div></br>";
+        let engineersText = "";
         for (var i = 0; i < engineers.length; i++)  {
-            engineersText=engineersText+ "<div>The engineer name: " +engineers[i].name+ "</br>The engineer ID: "+engineers[i].ID+"</br>The engineer email: "+"<a href='mailto://"+engineers[i].email+"'>"+engineers[i].email+"</a>"+"</br>The engineer GitHub: <a href='https://github.com/"+engineers[i].git+"'>"+engineers[i].git+"</a></div></br>"
+            engineersText=engineersText+ "<div class='col-3 card'><div class='card-header text-uppercase'>" +engineers[i].name+ "</br><span class='oi oi-laptop'></span>  "+engineers[i].role+"</div></br><div class='card-body'>ID: "+engineers[i].ID+"</br>Email: "+"<a href='mailto://"+engineers[i].email+"'>"+engineers[i].email+"</a>"+"</br>GitHub: <a href='https://github.com/"+engineers[i].git+"'>"+engineers[i].git+"</a></div></div></br>"
           };
-        let internsText = "<h2>The Interns</h2></br>";
+        let internsText = "";
         for (var i = 0; i < interns.length; i++)  {
-              internsText=internsText+ "<div>The intern name: " +interns[i].name+ "</br>The intern ID: "+interns[i].ID+"</br>The intern email: "+"<a href='mailto://"+interns[i].email+"'>"+interns[i].email+"</a>"+"</br>The intern school: "+interns[i].school+"</div></br>"
+              internsText=internsText+ "<div class='col-3 card'><div class='card-header text-uppercase'>" +interns[i].name+ "</br><span class='oi oi-heart'></span>  "+interns[i].role+"</div></br><div class='card-body'>ID: "+interns[i].ID+"</br>Email: "+"<a href='mailto://"+interns[i].email+"'>"+interns[i].email+"</a>"+"</br>School: "+interns[i].school+"</div></div></br>"
             };
         let footer = 
-        `</main></body></html>`
+        `</div></main></body></html>`
         this.writeToFile('./dist/index.html',`${header}${topText}</br>${managerText}</br>${engineersText}</br>${internsText}${footer}`); 
     }
 
