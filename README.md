@@ -2,7 +2,7 @@
 
 
 ## <span id="description">Description</span>
-Build a Node.js command-line application that takes in information about employees on a software engineering team and generates an HTML webpage that displays summaries for each person.
+Build a Node.js command-line application that takes in information about employees on a software engineering team and generates an HTML webpage that displays summaries for each person. Refer to the video for more information: <a href=https://drive.google.com/file/d/13FxlVaw6PYqiIOpqrjigtfYO3fuWfLGM/view>Team Creator Video</a>
 
 ## <span id="content">Table of Contents</span>
 <a href="#description">Description</a></br>
