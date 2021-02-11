@@ -1,17 +1,18 @@
 const Manager = require('../lib/Manager.js');
+
 test('creates a manager object', () => {
     const manager = new Manager('myManagerName', 'myManagerID', 'myManagerEmail', 'myManagerOfficeNumber');
   
-    expect(manager.name).toBe('myManagerName');
-    expect(manager.ID).toBe('myManagerID');
-    expect(manager.email).toBe('myManagerEmail');
     expect(manager.officeNb).toBe('myManagerOfficeNumber');
+    expect(manager.role).toBe('Manager');
   });
 
-  test('email is valid', () => {
-    const manager1 = new Manager('myManagerName', 'myManagerID', 'myManagerEmail@gmail.com', 'myManagerOfficeNumber');
-    expect(manager1.isEmail()).toBeTruthy();
-    const manager2 = new Manager('myManagerName', 'myManagerID', 'myManagerEmailgmail.com', 'myManagerOfficeNumber');
-    expect(manager2.isEmail()).toBeFalsy();
+test('get office number works', () => {
+  const manager = new Manager('myManagerName', 'myManagerID', 'myManagerEmail@gmail.com', 'myManagerOfficeNumber');
+  expect(manager.getOfficeNumber()).toEqual('myManagerOfficeNumber');
+});
 
+test('get role works', () => {
+  const manager = new Manager('myManagerName', 'myManagerID', 'myManagerEmail@gmail.com', 'myManagerOfficeNumber');
+  expect(manager.getRole()).toEqual('Manager');
 });
