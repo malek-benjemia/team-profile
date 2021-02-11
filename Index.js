@@ -1,4 +1,3 @@
-
 const Page= require('./lib/Page.js');
 
 //initial function
