@@ -10,8 +10,8 @@ test('creates an engineer object', () => {
   });
 
 test('email is valid', () => {
-    const engineer = new Engineer('myEngineerName', 'myEngineerID', 'myEngineerEmail@gmail.com', 'myEngineerGitHub');
-    expect(engineer.isEmail()).toBeTruthy();
-    const engineer = new Engineer('myEngineerName', 'myEngineerID', 'myEngineerEmailgmail.com', 'myEngineerGitHub');
-    expect(engineer.isEmail()).toBeFalsy();
+    const engineer1 = new Engineer('myEngineerName', 'myEngineerID', 'myEngineerEmail@gmail.com', 'myEngineerGitHub');
+    expect(engineer1.isEmail()).toBeTruthy();
+    const engineer2 = new Engineer('myEngineerName', 'myEngineerID', 'myEngineerEmailgmail.com', 'myEngineerGitHub');
+    expect(engineer2.isEmail()).toBeFalsy();
 });

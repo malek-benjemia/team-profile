@@ -5,13 +5,13 @@ test('creates a manager object', () => {
     expect(manager.name).toBe('myManagerName');
     expect(manager.ID).toBe('myManagerID');
     expect(manager.email).toBe('myManagerEmail');
-    expect(manager.git).toBe('myManagerOfficeNumber');
+    expect(manager.officeNb).toBe('myManagerOfficeNumber');
   });
 
   test('email is valid', () => {
-    const manager = new Manager('myManagerName', 'myManagerID', 'myManagerEmail@gmail.com', 'myManagerOfficeNumber');
-    expect(manager.isEmail()).toBeTruthy();
-    const manager = new Manager('myManagerName', 'myManagerID', 'myManagerEmailgmail.com', 'myManagerOfficeNumber');
-    expect(manager.isEmail()).toBeFalsy();
+    const manager1 = new Manager('myManagerName', 'myManagerID', 'myManagerEmail@gmail.com', 'myManagerOfficeNumber');
+    expect(manager1.isEmail()).toBeTruthy();
+    const manager2 = new Manager('myManagerName', 'myManagerID', 'myManagerEmailgmail.com', 'myManagerOfficeNumber');
+    expect(manager2.isEmail()).toBeFalsy();
 
 });
